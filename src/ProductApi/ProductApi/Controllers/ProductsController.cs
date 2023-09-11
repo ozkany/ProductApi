@@ -20,7 +20,7 @@ namespace ProductApi.Controllers
         [HttpGet]
         public async Task<ActionResult<GetAllProductsResponseDto>> GetProducts()
         {
-            var products = await _productService.GetAllProducts();
+            var products = await _productService.GetAllProductsAsync();
 
             return products;
         }
@@ -28,7 +28,7 @@ namespace ProductApi.Controllers
         [HttpGet("{productId}")]
         public async Task<ActionResult<ProductDto>> GetProduct(string productId)
         {
-            var product = await _productService.GetProduct(productId);
+            var product = await _productService.GetProductAsync(productId);
 
             return product;
         }
@@ -36,7 +36,7 @@ namespace ProductApi.Controllers
         [HttpPost]
         public async Task<ActionResult<CreateProductResponseDto>> CreateProduct(CreateProductRequestDto product)
         {
-            var response = await _productService.CreateProduct(product);
+            var response = await _productService.CreateProductAsync(product);
 
             return response;
         }
@@ -44,7 +44,7 @@ namespace ProductApi.Controllers
         [HttpPost(nameof(CreateProductRange))]
         public async Task<IActionResult> CreateProductRange(List<CreateProductRequestDto> products)
         {
-            await _productService.CreateProductRange(products);
+            await _productService.CreateProductRangeAsync(products);
 
             return Ok();
         }
@@ -52,7 +52,7 @@ namespace ProductApi.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateProduct(UpdateProductRequestDto product)
         {
-            await _productService.UpdateProduct(product);
+            await _productService.UpdateProductAsync(product);
 
             return Ok();
         }
@@ -60,7 +60,7 @@ namespace ProductApi.Controllers
         [HttpDelete("{productId}")]
         public async Task<IActionResult> DeleteProduct(string productId)
         {
-            await _productService.DeleteProduct(productId);
+            await _productService.DeleteProductAsync(productId);
 
             return Ok();
         }

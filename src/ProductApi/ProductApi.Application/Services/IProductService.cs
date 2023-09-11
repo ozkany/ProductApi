@@ -5,16 +5,16 @@ namespace ProductApi.Application.Services
 {
     public interface IProductService
     {
-        Task<GetAllProductsResponseDto> GetAllProducts();
+        Task<GetAllProductsResponseDto> GetAllProductsAsync();
 
-        Task<ProductDto> GetProduct(string id);
+        Task<ProductDto> GetProductAsync(string id);
 
-        Task<CreateProductResponseDto> CreateProduct(CreateProductRequestDto request);
+        Task<CreateProductResponseDto> CreateProductAsync(CreateProductRequestDto request);
 
-        Task CreateProductRange(List<CreateProductRequestDto> productListDto);
+        Task CreateProductRangeAsync(List<CreateProductRequestDto> productListDto);
 
-        Task UpdateProduct(UpdateProductRequestDto productDto);
+        Task UpdateProductAsync(UpdateProductRequestDto productDto);
 
-        Task DeleteProduct(string productId);
+        Task DeleteProductAsync(string productId);
     }
 }
