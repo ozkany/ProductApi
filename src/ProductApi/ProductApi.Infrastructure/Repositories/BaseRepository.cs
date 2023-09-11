@@ -30,6 +30,11 @@ namespace ProductApi.Infrastructure.Repositories
             return entity;
         }
 
+        public async Task AddRangeAsync(IEnumerable<T> entities)
+        {
+            await _dbContext.Set<T>().AddRangeAsync(entities);
+        }
+
         public void Update(T entity)
         {
             _dbContext.Set<T>().Update(entity);

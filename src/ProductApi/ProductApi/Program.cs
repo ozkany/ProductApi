@@ -4,6 +4,7 @@ ProductApi.Application.DependencyInjections.ConfigureServices(builder.Services);
 ProductApi.Infrastructure.DependencyInjections.ConfigureServices(builder.Services, builder.Configuration);
 
 // Add services to the container.
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

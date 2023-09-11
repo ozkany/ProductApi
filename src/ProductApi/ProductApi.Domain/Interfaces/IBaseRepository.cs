@@ -7,6 +7,7 @@ namespace ProductApi.Domain.Interfaces
         Task<T> GetByIdAsync(string id);
         Task<IList<T>> GetAllAsync();
         Task<T> AddAsync(T entity);
+        Task AddRangeAsync(IEnumerable<T> entities);
         void Update(T entity);
         void Delete(T entity);
         Task<int> SaveChangesAsync();

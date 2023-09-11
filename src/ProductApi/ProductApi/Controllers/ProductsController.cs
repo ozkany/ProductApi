@@ -25,12 +25,28 @@ namespace ProductApi.Controllers
             return products;
         }
 
+        [HttpGet("{productId}")]
+        public async Task<ActionResult<ProductDto>> GetProduct(string productId)
+        {
+            var product = await _productService.GetProduct(productId);
+
+            return product;
+        }
+
         [HttpPost]
-        public async Task<ActionResult<CreateProductResponseDto>> AddProduct(CreateProductRequestDto product)
+        public async Task<ActionResult<CreateProductResponseDto>> CreateProduct(CreateProductRequestDto product)
         {
             var response = await _productService.CreateProduct(product);
 
-            return Ok(response);
+            return response;
+        }
+
+        [HttpPost(nameof(CreateProductRange))]
+        public async Task<IActionResult> CreateProductRange(List<CreateProductRequestDto> products)
+        {
+            await _productService.CreateProductRange(products);
+
+            return Ok();
         }
     }
 }
