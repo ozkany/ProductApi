@@ -48,5 +48,21 @@ namespace ProductApi.Controllers
 
             return Ok();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct(UpdateProductRequestDto product)
+        {
+            await _productService.UpdateProduct(product);
+
+            return Ok();
+        }
+
+        [HttpDelete("{productId}")]
+        public async Task<IActionResult> DeleteProduct(string productId)
+        {
+            await _productService.DeleteProduct(productId);
+
+            return Ok();
+        }
     }
 }

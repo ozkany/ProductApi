@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using ProductApi.Application.Dtos;
 using ProductApi.Application.Dtos.Base;
+using ProductApi.Domain.Exceptions;
 using ProductApi.Domain.Interfaces;
 using ProductApi.Domain.Models;
+using System.Globalization;
 
 namespace ProductApi.Application.Services
 {
@@ -55,6 +57,24 @@ namespace ProductApi.Application.Services
             var productDto = _mapper.Map<ProductDto>(product);
 
             return productDto;
+        }
+
+        public async Task UpdateProduct(UpdateProductRequestDto productDto)
+        {
+            var product = _mapper.Map<Product>(productDto);
+
+            _productRepository.Update(product);
+
+            await _productRepository.SaveChangesAsync();
+        }
+
+        public async Task DeleteProduct(string productId)
+        {
+            var product = await _productRepository.GetByIdAsync(productId);
+
+            _productRepository.Delete(product);
+
+            await _productRepository.SaveChangesAsync();
         }
     }
 }

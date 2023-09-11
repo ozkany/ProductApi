@@ -2,6 +2,7 @@
 using ProductApi.Domain.Interfaces;
 using ProductApi.Domain.Models;
 using ProductApi.Infrastructure.Data;
+using System.Linq.Expressions;
 
 namespace ProductApi.Infrastructure.Repositories
 {
@@ -44,6 +45,11 @@ namespace ProductApi.Infrastructure.Repositories
         {
             _dbContext.Set<T>().Remove(entity);
         }
+
+        //public void ExecuteDelete(T entity, Expression<Func<T, bool>> expression)
+        //{
+        //    _dbContext.Set<T>().Where(expression).ExecuteDeleteAsync(entity);
+        //}
 
         public async Task<int> SaveChangesAsync()
         {

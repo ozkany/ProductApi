@@ -12,5 +12,9 @@ namespace ProductApi.Application.Services
         Task<CreateProductResponseDto> CreateProduct(CreateProductRequestDto request);
 
         Task CreateProductRange(List<CreateProductRequestDto> productListDto);
+
+        Task UpdateProduct(UpdateProductRequestDto productDto);
+
+        Task DeleteProduct(string productId);
     }
 }
