@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProductApi.Application.Dtos.Base
 {
-    public class ProductBase
+    public class ProductDto
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
 
         [Required]
         public string Name { get; set; }

@@ -4,8 +4,8 @@ namespace ProductApi.Application.Services
 {
     public interface IProductService
     {
-        Task<CreateProductResponse> CreateUser(CreateProductRequest request);
+        Task<CreateProductResponseDto> CreateProduct(CreateProductRequestDto request);
 
-        Task<GetAllProductsResponse> GetAllProducts();
+        Task<GetAllProductsResponseDto> GetAllProducts();
     }
 }

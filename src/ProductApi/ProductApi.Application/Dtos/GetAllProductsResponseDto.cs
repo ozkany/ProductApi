@@ -2,8 +2,8 @@
 
 namespace ProductApi.Application.Dtos
 {
-    public class GetAllProductsResponse
+    public class GetAllProductsResponseDto
     {
-        public List<ProductBase> Products { get; set; }
+        public List<ProductDto> Products { get; set; }
     }
 }

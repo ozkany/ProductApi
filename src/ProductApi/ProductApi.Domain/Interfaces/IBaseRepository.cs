@@ -5,7 +5,7 @@ namespace ProductApi.Domain.Interfaces
     public interface IBaseRepository<T> where T : BaseEntity
     {
         Task<T> GetByIdAsync(string id);
-        Task<IList<T>> ListAllAsync();
+        Task<IList<T>> GetAllAsync();
         Task<T> AddAsync(T entity);
         void Update(T entity);
         void Delete(T entity);

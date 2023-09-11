@@ -13,10 +13,11 @@ namespace ProductApi.Application.Services
             _productRepository = productRepository;
         }
 
-        public async Task<CreateProductResponse> CreateUser(CreateProductRequest request)
+        public async Task<CreateProductResponseDto> CreateProduct(CreateProductRequestDto request)
         {
-            var user1 = await _productRepository.AddAsync(new Product
+            var product = await _productRepository.AddAsync(new Product
             {
+                Id = request.Id,
                 Name= request.Name,
                 Description= request.Description,
                 Brand= request.Brand,
@@ -26,14 +27,14 @@ namespace ProductApi.Application.Services
 
             await _productRepository.SaveChangesAsync();
 
-            return new CreateProductResponse() {  };
+            return new CreateProductResponseDto() { Id = product.Id };
         }
 
-        public async Task<GetAllProductsResponse> GetAllProducts()
+        public async Task<GetAllProductsResponseDto> GetAllProducts()
         {
-            var products = await _productRepository.GetByIdAsync("1");
+            var products = await _productRepository.GetAllAsync();
 
-            var resp = new GetAllProductsResponse() { Products = new List<Dtos.Base.ProductBase>() };
+            var resp = new GetAllProductsResponseDto() { Products = new List<Dtos.Base.ProductDto>() };
             return resp;
         }
     }

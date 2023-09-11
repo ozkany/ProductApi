@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProductApi.Application.Dtos
 {
-    public class CreateProductResponse : ProductBase
+    public class CreateProductResponseDto
     {
-        
+        public string Id { get; set; }
     }
 }

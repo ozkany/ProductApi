@@ -17,7 +17,6 @@ namespace ProductApi.Infrastructure.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseInMemoryDatabase("TestDb");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

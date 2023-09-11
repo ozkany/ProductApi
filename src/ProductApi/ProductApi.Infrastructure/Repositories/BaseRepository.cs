@@ -19,7 +19,7 @@ namespace ProductApi.Infrastructure.Repositories
             return await _dbContext.Set<T>().FindAsync(id);
         }
 
-        public async Task<IList<T>> ListAllAsync()
+        public async Task<IList<T>> GetAllAsync()
         {
             return await _dbContext.Set<T>().ToListAsync();
         }

@@ -12,4 +12,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProductApi.Application\ProductApi.Application.csproj" />
+    <ProjectReference Include="..\ProductApi.Domain\ProductApi.Domain.csproj" />
+    <ProjectReference Include="..\ProductApi.Infrastructure\ProductApi.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
+ProductApi.Application.DependencyInjections.ConfigureServices(builder.Services);
+ProductApi.Infrastructure.DependencyInjections.ConfigureServices(builder.Services, builder.Configuration);
+
 // Add services to the container.
 
 builder.Services.AddControllers();
