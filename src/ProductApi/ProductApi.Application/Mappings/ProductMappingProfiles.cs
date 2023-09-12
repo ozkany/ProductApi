@@ -4,7 +4,7 @@ using ProductApi.Domain.Models;
 
 namespace ProductApi.Application.Mappings
 {
-    internal class ProductMappingProfiles : Profile
+    public class ProductMappingProfiles : Profile
     {
         public ProductMappingProfiles()
         {
