@@ -17,6 +17,7 @@ namespace ProductApi.Domain.Models
 
         [Required]
         [Range(0.01, int.MaxValue)]
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal Price { get; set; }
 
         [Required]

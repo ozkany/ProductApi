@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using ProductApi.Domain.Models;
 
 namespace ProductApi.Infrastructure.Data
@@ -11,6 +13,19 @@ namespace ProductApi.Infrastructure.Data
 
         public ProductDbContext(DbContextOptions<ProductDbContext> options) : base(options)
         {
+            var dbCreater = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
+            if (dbCreater != null)
+            {
+                if (!dbCreater.CanConnect())
+                {
+                    dbCreater.Create();
+                }
+
+                if (!dbCreater.HasTables())
+                {
+                    dbCreater.CreateTables();
+                }
+            }
         }
 
         public DbSet<Product> Products { get; set; }

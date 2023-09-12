@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  productapi:
+    image: ${DOCKER_REGISTRY-}productapi
+    build:
+      context: .
+      dockerfile: ProductApi/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "DbP@ssword!"
+      ACCEPT_EULA: "Y"

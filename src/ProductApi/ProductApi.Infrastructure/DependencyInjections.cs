@@ -11,7 +11,9 @@ namespace ProductApi.Infrastructure
     {
         public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ProductDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+            //services.AddDbContext<ProductDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+            services.AddDbContext<ProductDbContext>(options =>
+                options.UseSqlServer(configuration.GetConnectionString("Default")));
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         }
