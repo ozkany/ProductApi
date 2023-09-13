@@ -45,7 +45,6 @@ export default function Products() {
       .then(res => res.json())
       .then(
         (result) => {
-          console.log('ProductsGet', result.products);
           setProducts(result.products)
         }
       )
@@ -53,7 +52,7 @@ export default function Products() {
 
   return (
     <div className={classes.root}>
-      <Container className={classes.container} maxWidth="lg">    
+      <Container className={classes.container} maxWidth="lg">
         <Paper className={classes.paper}>
           <Box display="flex">
             <Box flexGrow={1}>
