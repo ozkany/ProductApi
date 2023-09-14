@@ -9,7 +9,9 @@ services:
     ports:
       - "8080:80"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+    restart: on-failure
 
   db:
     image: "mcr.microsoft.com/mssql/server:2022-latest"
@@ -18,6 +20,10 @@ services:
     environment:
       MSSQL_SA_PASSWORD: "DbP@ssword!"
       ACCEPT_EULA: "Y"
+    healthcheck:
+      test: ["CMD", "/opt/mssql-tools/bin/sqlcmd", "-Usa", "-PDbP@ssword!", "-Q", "select 1"]
+      interval: 2s
+      retries: 60
 
   productweb:
     image: ${DOCKER_REGISTRY-}productweb
@@ -29,3 +35,6 @@ services:
       target: development
     ports: 
       - 3000:3000
+    depends_on:
+      productapi:
+        condition: service_started
