@@ -11,6 +11,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -50,6 +51,28 @@ export default function Products() {
       )
   }
 
+  const UpdateProduct = id => {
+    window.location = '/update/'+id
+  }
+
+  const DeleteProduct = id => {
+    fetch('http://localhost:8080/api/Products/'+id, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/form-data',
+        'Content-Type': 'application/json',
+      }
+    })
+    .then(
+      (result) => {
+        if (result.status == '200') {
+          alert('Product is successfully deleted.');
+          ProductsGet();
+        }
+      }
+    )
+  }
+
   return (
     <div className={classes.root}>
       <Container className={classes.container} maxWidth="lg">
@@ -78,6 +101,7 @@ export default function Products() {
                 <TableCell align="left">Description</TableCell>
                 <TableCell align="right">Price</TableCell>
                 <TableCell align="right">Stock</TableCell>
+                <TableCell align="center">Actions</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -89,6 +113,12 @@ export default function Products() {
                   <TableCell align="left">{product.description}</TableCell>
                   <TableCell align="right">{product.price}</TableCell>
                   <TableCell align="right">{product.stock}</TableCell>
+                  <TableCell align="center">
+                    <ButtonGroup color="primary" aria-label="outlined primary button group">
+                      <Button onClick={() => UpdateProduct(product.id)}>Edit</Button>
+                      <Button onClick={() => DeleteProduct(product.id)}>Delete</Button>
+                    </ButtonGroup>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
