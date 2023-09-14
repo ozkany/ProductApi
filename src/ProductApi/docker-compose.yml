@@ -18,3 +18,14 @@ services:
     environment:
       MSSQL_SA_PASSWORD: "DbP@ssword!"
       ACCEPT_EULA: "Y"
+
+  productweb:
+    image: ${DOCKER_REGISTRY-}productweb
+    environment:
+      - NODE_ENV=development
+    build: 
+      context: ../productweb
+      dockerfile: ../productweb/Dockerfile
+      target: development
+    ports: 
+      - 3000:3000

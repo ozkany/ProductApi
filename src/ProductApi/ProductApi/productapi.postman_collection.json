@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "22a7a0c5-3a1c-4436-864c-909c799df695",
+		"name": "Dustin Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "590723"
+	},
+	"item": [
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"A15\",\r\n  \"name\": \"Product 15\",\r\n  \"brand\": \"Apple 15\",\r\n  \"price\": 490,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product Range",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n  \"id\": \"A11\",\r\n  \"name\": \"iPhone 10 64GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 355,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 10\r\n},\r\n{\r\n  \"id\": \"A12\",\r\n  \"name\": \"iPhone 12 128GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 255,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 25\r\n},\r\n{\r\n  \"id\": \"A13\",\r\n  \"name\": \"iPhone 13 64GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 355,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 33\r\n},\r\n{\r\n  \"id\": \"A14\",\r\n  \"name\": \"iPhone 14 256GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 455,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 47\r\n},\r\n{\r\n  \"id\": \"A15\",\r\n  \"name\": \"iPhone 15 128GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 455,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 53\r\n},\r\n{\r\n  \"id\": \"A16\",\r\n  \"name\": \"iPhone 15 256GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 555,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 61\r\n},\r\n{\r\n  \"id\": \"A17\",\r\n  \"name\": \"iPhone 15 512GB\",\r\n  \"brand\": \"Apple\",\r\n  \"price\": 755,\r\n  \"description\": \"Apple smart phone\",\r\n  \"stock\": 76\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Products/CreateProductRange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products",
+						"CreateProductRange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"A11\",\r\n  \"name\": \"Updated Phone 8 64GB\",\r\n  \"brand\": \"Updated Apple\",\r\n  \"price\": 490,\r\n  \"description\": \"Updated Apple smart phone\",\r\n  \"stock\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/Products/A12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products",
+						"A12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/Products/A12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products",
+						"A12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
